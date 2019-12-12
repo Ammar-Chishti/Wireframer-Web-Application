@@ -1,0 +1,176 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+}
+
+body {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 5%;
+}
+
+div.banner {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button, form h5 {
+  margin: 20px 0;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]){
+  border-color: #ec407a;
+  box-shadow: none;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label,
+input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label{
+  color: #ec407a !important;
+}
+
+
+
+/* LIST SCREEN CONTROLS */
+#list_heading {}
+#modal_yes_no_dialog {
+  top: 162px;
+  width: 500px;
+  left: 23%;
+  position: absolute;
+}
+#list_trash {
+  position: absolute;
+  left: 85%;
+  width: 15%;
+  text-align: right;
+  top: 11%;
+}
+#list_details_container {
+  padding-left: 2%;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-gap: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+#list_details_name_container {}
+#list_name_prompt {}
+#list_name_textfield {}
+#list_details_owner_container {}
+#list_owner_prompt {}
+#list_owner_textfield {}
+#list_items_container {}
+
+
+/* LIST SCREEN CLASSES */
+.list_item_card, .list_item_add_card, .list_item_header_card {
+  position: relative;
+  height: 50px;
+  grid-row-gap: 0px;
+  grid-column-gap: 50px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.list_item_card_description {
+  position: absolute;
+  left: 2%;
+}
+.list_item_task_header, .list_item_due_date_header, .list_item_status_header {
+  position: absolute;
+  top: 5%;
+}
+.list_item_card_assigned_to, .list_item_card_due_date, 
+.list_item_card_completed, .list_item_card_not_completed {
+  position: absolute;
+  top: 50%;
+}
+.list_item_task_header, .list_item_card_assigned_to {
+  left: 2%;
+}
+.list_item_due_date_header, .list_item_card_due_date {
+  left: 35%;
+}
+.list_item_status_header, .list_item_card_completed, .list_item_card_not_completed {
+  left: 60%;
+}
+.list_item_card_toolbar {
+  position: absolute;
+  left: 85%;
+  width: 15%;
+  top: 5%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+.list_item_card_button {
+  text-align: center;
+  border-radius: 5px;
+  margin: 1%;
+}
+.list_item_add_card {
+  text-align: center;
+  vertical-align: center;
+}
+
+/* ITEM SCREEN CONTROLS */
+#item_heading {}
+#item_form_container {
+  display: grid;
+}
+#item_description_prompt {}
+#item_description_textfield {}
+#item_assigned_to_prompt {}
+#item_assigned_to_textfield {}
+#item_due_date_prompt {}
+#item_due_date_picker {}
+#item_completed_prompt {}
+#item_completed_checkbox {}
+#item_form_submit_button {}
+#item_form_cancel_button {}
+
+/* NEW/EDIT ITEM SCREEN CLASSES */
+#todo_edit body {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  visibility: visible;
+}
+#todo_edit_home body {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 350px;
+}
+.edit_home_object {
+  position: absolute;
+  left: 200px;
+}
+.edit_home_checkbox {
+  position: absolute;
+  left: 196px;
+}
