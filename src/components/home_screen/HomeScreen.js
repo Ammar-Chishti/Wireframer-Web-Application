@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
-import TodoListLinks from './TodoListLinks'
+import WireframeLinks from './WireframeLinks'
 import { getFirestore } from 'redux-firestore';
 
 class HomeScreen extends Component {
@@ -34,7 +34,7 @@ class HomeScreen extends Component {
                 <div className="row">
                     <div className="col s10 m4">
                         <h1 className="wireframes_header_text">Recent Work</h1>
-                        <TodoListLinks />
+                        <WireframeLinks />
                     </div>
 
                     <div className="col s8">
