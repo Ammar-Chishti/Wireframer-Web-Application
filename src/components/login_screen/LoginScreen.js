@@ -48,6 +48,7 @@ class LoginScreen extends Component {
           <div className="row">
             <form onSubmit={this.handleSubmit} className="col s4">
             <div className="wireframes_header_text">Login</div>
+            <br />
             <div className="input-field">
               <label htmlFor="email">Email</label>
               <input className="active" type="email" name="email" id="email" onChange={this.handleChange} />
