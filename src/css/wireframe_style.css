@@ -64,7 +64,7 @@ div.banner {
   position: relative;
   left: 28%;
 
-  margin-top: 3%;
+  margin-top: 4%;
   border-radius: 15px;
   font-size: 32pt;
 }
@@ -107,14 +107,20 @@ div.banner {
 
 .delete_wireframe {
   background-color: transparent;
+  color: black;
   position: relative;
   float: right;
+  font-weight: bold;
 }
 
 .nav_bar {
   background-color: #FFC581;
 }
 
+.card_title {
+  position: relative;
+  text-decoration: underline;
+}
 
 
 

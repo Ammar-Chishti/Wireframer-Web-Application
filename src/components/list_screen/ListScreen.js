@@ -6,7 +6,7 @@ import ItemsList from './ItemsList.js'
 import { firestoreConnect } from 'react-redux-firebase';
 import { getFirestore } from 'redux-firestore';
 import ListTrash from './ListTrash';
-import { ModalYesNoDialog } from './ModalYesNoDialog.js';
+import { ModalYesNoDialog } from '../home_screen/ModalYesNoDialog.js';
 import ItemScreen from '../item_screen/ItemScreen'
 
 class ListScreen extends Component {

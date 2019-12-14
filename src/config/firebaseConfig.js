@@ -4,17 +4,16 @@ import 'firebase/auth';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyASg-3mC-XXGCV2VLjrYjideHFTYAwi5vE",
-    authDomain: "cse-316-homework3.firebaseapp.com",
-    databaseURL: "https://cse-316-homework3.firebaseio.com",
-    projectId: "cse-316-homework3",
-    storageBucket: "cse-316-homework3.appspot.com",
-    messagingSenderId: "420873396327",
-    appId: "1:420873396327:web:dfa2f12cb7e0393bcab4c2"
-  };
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyBHQ1JrjNYaU2iBrZXcZz1Gnyd_Mi-y1Uo",
+  authDomain: "cse-316-final-project-98f10.firebaseapp.com",
+  databaseURL: "https://cse-316-final-project-98f10.firebaseio.com",
+  projectId: "cse-316-final-project-98f10",
+  storageBucket: "cse-316-final-project-98f10.appspot.com",
+  messagingSenderId: "604347760245",
+  appId: "1:604347760245:web:bc4c2cf60c3ea69b62823c"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 // NOW THE firebase OBJECT CAN BE CONNECTED TO THE STORE
 export default firebase;

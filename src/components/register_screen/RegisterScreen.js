@@ -35,7 +35,7 @@ class RegisterScreen extends Component {
   render() {
     const { auth, authError } = this.props;
     if (auth.uid) {
-      return <Redirect to="/" />;
+      return <Redirect to={"/user/" + auth.uid + "/wireframes/"} />;
     }
 
     return (
