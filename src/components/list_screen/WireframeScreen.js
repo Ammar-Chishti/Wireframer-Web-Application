@@ -64,24 +64,40 @@ class WireframeScreen extends Component {
     }
 
     renderHTML = (item) => {
+
+        /* 
+            borderWidth = borderThickness
+            border = borderColor
+            fontSize = textSize
+            color = textColor
+            background = backgroundColor
+        */
+
         if (item.type === "container") {
             return(<div style={{
+                background: item.background,
+                border: item.borderColor,
+                borderWidth: item.borderThickness,
+                borderRadius: item.borderRadius,
                 width: "100%",
                 height: "100%",
-                background: "black"
             }}
             ></div>)
         }
 
         else if (item.type === "label") {
-            console.log("LABELLLLLLL")
-            return(<h1 style={{
+            return(<span style={{
+                fontSize: 50,
+                color: item.textColor,
+                background: item.backgroundColor,
+                border: item.borderColor,
+                borderWidth: item.borderThickness,
+                borderRadius: item.borderRadius,
                 width: "100%",
                 height: "100%",
-                outline: "solid"
             }}
             
-            ></h1>)
+            >{item.itemText}</span>)
         }
 
         else if (item.type === "button") {
@@ -186,7 +202,7 @@ class WireframeScreen extends Component {
                         {this.state.items.map((item) => {
                             console.log(item)
                             return (
-                                <Rnd
+                                <Rnd style={{border: "2px dotted red"}}
                             
                             default={{
                                 x: item.x,
@@ -212,8 +228,8 @@ class WireframeScreen extends Component {
                             //onDragStop={}
                             //onResizeStop={}
 
-                            minWidth={"7px"}
-                            minHeight={"7px"}
+                            minWidth={55}
+                            minHeight={20}
                             bounds="#canvas"
                             >
                             {this.renderHTML(item)}

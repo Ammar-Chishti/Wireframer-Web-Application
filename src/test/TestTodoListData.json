@@ -10,30 +10,33 @@
                     "key": 0,
                     "type": "container",
                     "backgroundColor": "white",
-                    "borderColor": "black",
-                    "borderThickness": 2,
-                    "borderRadius": 2,
-                    "height": 30,
-                    "width": 30,
-                    "x": 100,
-                    "y": 100
+                    "borderColor": "solid black",
+                    "borderThickness": 3,
+                    "borderRadius": 3,
+                    "height": 500,
+                    "width": 500,
+                    "x": 20,
+                    "y": 20
                 },
                 {
                     "key": 1,
                     "type": "label",
                     "itemText": "Login",
-                    "defaultText": "label",
+                    "textSize": 7,
                     "textColor": "black",
-                    "fontSize": 12,
-                    "height": 30,
-                    "width": 30,
-                    "x": 25,
-                    "y": 25
+                    "backgroundColor": "white",
+                    "borderColor": "black",
+                    "borderThickness": 3,
+                    "borderRadius": 3,
+                    "height": 25,
+                    "width": 50,
+                    "x": 80,
+                    "y": 80
                 },
                 {
                     "key": 2,
                     "type": "textfield",
-                    "itemText": "",
+                    "itemText": "Input",
                     "defaultText": "Input",
                     "textColor": "black",
                     "fontSize": 12,
@@ -41,10 +44,10 @@
                     "borderColor": "black",
                     "borderThickness": 2,
                     "borderRadius": 2,
-                    "height": 30,
-                    "width": 30,
-                    "x": 50,
-                    "y": 50
+                    "height": 25,
+                    "width": 120,
+                    "x": 80,
+                    "y": 130
                 },
                 {
                     "key": 3,
@@ -57,10 +60,10 @@
                     "borderColor": "black",
                     "borderThickness": 2,
                     "borderRadius": 2,
-                    "height": 30,
-                    "width": 30,
-                    "x": 50,
-                    "y": 50
+                    "height": 25,
+                    "width": 120,
+                    "x": 80,
+                    "y": 180
                 },
                 {
                     "key": 4,
@@ -74,9 +77,9 @@
                     "borderThickness": 2,
                     "borderRadius": 2,
                     "height": 30,
-                    "width": 30,
-                    "x": 50,
-                    "y": 50
+                    "width": 80,
+                    "x": 80,
+                    "y": 230
                 }
             ]
         }
