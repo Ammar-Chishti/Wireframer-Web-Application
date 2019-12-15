@@ -26,19 +26,6 @@ class HomeScreen extends Component {
         this.props.history.push(historyPush)
     }
 
-    debug = () => {
-
-        /*
-        console.log("yo mama")
-
-        const historyPush = {
-            pathname: "wireFrame/", //+ newList.id,
-            //key: newList.id
-        }
-        this.props.history.push(historyPush)
-        */
-    }
-
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
