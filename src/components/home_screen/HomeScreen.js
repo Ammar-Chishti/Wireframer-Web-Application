@@ -55,7 +55,6 @@ class HomeScreen extends Component {
                                 </button>
                         </div>
                     </div>
-                    <button onClick={() => this.debug()}>DEBUG</button>
                 </div>
             </div>
         );

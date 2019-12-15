@@ -24,12 +24,12 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Switch>
+              <Route exact path="/" component={HomeScreen} />
               <Route path="/databaseTester" component={DatabaseTester} />
               <Route path="/register" component={RegisterScreen} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/user/:id/wireframes" component={HomeScreen} />
               <Route path="/user/:id/wireframe/:id" component={WireframeScreen} />
-              <Route path="/:any" component={HomeScreen} />
             </Switch>
           </div>
         </BrowserRouter>

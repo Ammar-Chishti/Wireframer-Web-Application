@@ -329,9 +329,45 @@ div.banner {
   width: 4%;
 }
 
+#modal_yes_no_close_dialog {
+  top: 162px;
+  width: 500px;
+  left: 23%;
+  position: absolute;
+}
 
+#modal_yes_no_close_dialog button {
+  height: 50px;
+  width: 50px;
+}
 
+#modal_yes_no_close_dialog {
+  height: 250px;
+  visibility: hidden;
+  z-index: 5;
+  text-align: left;
+  background-color: #EEE8AA
+}
 
+.modal_yes_no_close_dialog_slide_in {
+  animation-name: slide_in_top;
+  animation-duration: 0.5s;
+}
+
+@keyframes slide_in_top {
+  from {top: -300px; opacity: 0}
+  to {top: 162px; opacity: 1}
+}
+
+.modal_yes_no_close_dialog_slide_out {
+  animation: slide_out_top;
+  animation-duration: 0.5s;
+}
+
+@keyframes slide_out_top {
+  from {top: 162px; opacity: 1}
+  to {top: -300px; opacity: 0}
+}
 
 
 

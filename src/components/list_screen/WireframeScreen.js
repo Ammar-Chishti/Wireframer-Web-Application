@@ -8,6 +8,7 @@ import { getFirestore } from 'redux-firestore';
 import ListTrash from './ListTrash';
 import { ModalYesNoDialog } from '../home_screen/ModalYesNoDialog.js';
 import ItemScreen from '../item_screen/ItemScreen'
+import { ModalYesNoCloseDialog } from './ModalYesNoCloseDialog'
 
 class WireframeScreen extends Component {
     state = {
@@ -15,6 +16,23 @@ class WireframeScreen extends Component {
         owner: '',
     }
 
+    handleClose = (e) => {
+
+        //If we haven't saved yet
+
+        let modalYesNoCloseDialog = document.getElementById("modal_yes_no_close_dialog")
+        modalYesNoCloseDialog.classList.remove("modal_yes_no_close_dialog_slide_out")
+        modalYesNoCloseDialog.classList.add("modal_yes_no_close_dialog_slide_in")
+        modalYesNoCloseDialog.style.visibility = "visible"
+    }
+
+    handleSave = (e) => {
+
+        console.log('yes')
+
+    }
+
+    /*
     newTimeSet = false
 
     setNewTime = () => {
@@ -55,20 +73,25 @@ class WireframeScreen extends Component {
             console.log(err)
         });
     }
+    */
 
     render() {
         const auth = this.props.auth;
         const todoList = this.props.todoList;
+
         if (!auth.uid) {
             return <Redirect to="/" />;
         }
         if (!todoList) {
             return <React.Fragment/>
         }
+
+        /*
         if (!this.newTimeSet) {
             this.setNewTime();
         }
         this.newTimeSet = true
+        */
         
         return (
             
@@ -77,8 +100,8 @@ class WireframeScreen extends Component {
                     <div>
                         <i className="material-icons" id="zoom_in">zoom_in</i>
                         <i className="material-icons" id="zoom_out">zoom_out</i>
-                        <button className="btn-small" id="save_button">Save</button>
-                        <button className="btn-small" id="close_button">Close</button>
+                        <button className="btn-small" id="save_button" onClick={this.handleSave}>Save</button>
+                        <button className="btn-small" id="close_button" onClick={this.handleClose}>Close</button>
                     </div>
                 </div>
                 <div className="container_picture"></div>
@@ -128,6 +151,7 @@ class WireframeScreen extends Component {
                 <div className="wireframe_border_radius_edit_div">
                     <input className="wireframe_border_radius_edit" value="2" type="text" style={{color: "darkgrey"}}></input>
                 </div>
+                <ModalYesNoCloseDialog historyURL={this.props.history} userId={auth.uid}/>
             </div>
         );
     }
