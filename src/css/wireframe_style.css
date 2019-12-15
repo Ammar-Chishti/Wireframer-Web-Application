@@ -207,14 +207,17 @@ div.banner {
 
 .wireframe_textfield_div {
   position: absolute;
-  top: 75%;
-  left: 2%;
-  width: 13%;
+  top: 76%;
+  left: 1%;
+}
+
+.wireframe_textfield {
+  width: 85%;
 }
 
 .textfield_label {
   position: absolute;
-  top: 84%;
+  top: 80%;
   left: 5.4%;
   font-weight: bold;
   color: #111111;

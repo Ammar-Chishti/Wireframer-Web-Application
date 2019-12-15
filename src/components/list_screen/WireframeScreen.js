@@ -45,7 +45,6 @@ class WireframeScreen extends Component {
 
     newTimeSet = false
 
-    
     setNewTime = () => {
         getFirestore().collection("todoLists").doc(this.props.todoList.id).update({
             time: Date.now(),
@@ -71,6 +70,7 @@ class WireframeScreen extends Component {
             fontSize = textSize
             color = textColor
             background = backgroundColor
+            borderColor (button)
         */
 
         if (item.type === "container") {
@@ -87,7 +87,7 @@ class WireframeScreen extends Component {
 
         else if (item.type === "label") {
             return(<span style={{
-                fontSize: 50,
+                fontSize: item.textSize,
                 color: item.textColor,
                 background: item.backgroundColor,
                 border: item.borderColor,
@@ -101,58 +101,144 @@ class WireframeScreen extends Component {
         }
 
         else if (item.type === "button") {
-            return(<div style={{
+            return(<button style={{
+                fontSize: item.textSize,
+                color: item.textColor,
+                background: item.backgroundColor,
+                border: item.borderColor,
+                borderWidth: item.borderThickness,
+                borderRadius: item.borderRadius,
+                width: "100%",
+                height: "100%",
                 width: "100%",
                 height: "100%"
             }}
             
-            ></div>)
+            >{item.itemText}</button>)
         }
 
-        else if (item.type === "Textfield") {
-            return(<div style={{
+        else if (item.type === "textfield") {
+            return(
+            <input value={item.itemText} type="label" style={{
+                background: item.backgroundColor,
+                border: item.borderColor,
+                borderWidth: item.borderThickness,
+                borderRadius: item.borderRadius,
                 width: "100%",
-                height: "100%"
+                height: "100%",
             }}
-            
-            ></div>)
+            readOnly>
+            </input>
+            )
+        }
+    }
+
+    createNewContainer = () => {
+        let newContainer = {
+            type: "container",
+            backgroundColor: "white",
+            borderColor: "solid black",
+            borderThickness: 3,
+            borderRadius: 3,
+            height: 50,
+            width: 125,
+            x: 0,
+            y: 0
         }
 
+        let tempItems = this.state.items
+        tempItems.push(newContainer)
 
+        this.setState({
+            ...this.state,
+            items: tempItems,
+            currentDataSaved: false
+        })
     }
 
-    /*
+    createNewLabel = () => {
 
-    deleteCurrentTodo = () => {
-        getFirestore().collection("todoLists").doc(this.props.todoList.id).delete().then(function() {
-            console.log("TODOLIST DELETED");
-        }).catch(function(err) {
-            console.error(err);
-        });
+        let newLabel = {
+            type: "label",
+            itemText: "Label",
+            textSize: 20,
+            textColor: "black",
+            backgroundColor: "white",
+            borderColor: "white",
+            borderThickness: 3,
+            borderRadius: 3,
+            height: 30,
+            width: 50,
+            x: 0,
+            y: 0
+        }
 
-        this.props.history.goBack();
+        let tempItems = this.state.items
+        tempItems.push(newLabel)
+
+        this.setState({
+            ...this.state,
+            items: tempItems,
+            currentDataSaved: false
+        })
     }
+
+    createNewButton = () => {
+
+        let newButton = {
+            key: 4,
+            type: "button",
+            itemText: "Submit",
+            textSize: 15,
+            textColor: "black",
+            backgroundColor: "white",
+            borderColor: "solid black",
+            borderThickness: 2,
+            borderRadius: 3,
+            height: 30,
+            width: 90,
+            x: 0,
+            y: 0
+        }
+
+        let tempItems = this.state.items
+        tempItems.push(newButton)
+
+        this.setState({
+            ...this.state,
+            items: tempItems,
+            currentDataSaved: false
+        })
+    }
+
+    createNewTextfield = () => {
+
+        let newTextField = {
+            type: "textfield",
+            itemText: "Input",
+            textSize: 20,
+            textColor: "black",
+            backgroundColor: "white",
+            borderColor: "solid black",
+            borderThickness: 2,
+            borderRadius: 3,
+            height: 25,
+            width: 130,
+            x: 0,
+            y: 0
+        }
+
+        let tempItems = this.state.items
+        tempItems.push(newTextField)
+
+        this.setState({
+            ...this.state,
+            items: tempItems,
+            currentDataSaved: false
+        })
+    }
+
     
-    handleChangeName = (e) => {
-        getFirestore().collection("todoLists").doc(this.props.todoList.id).update({
-            name: e.target.value,
-        }).then(() => {
-            console.log("TODOLIST NAME MODIFIED")
-        }).catch((err) => {
-            console.log(err)
-        });
-    }
-
-    handleChangeOwner = (e) => {
-        getFirestore().collection("todoLists").doc(this.props.todoList.id).update({
-            owner: e.target.value,
-        }).then(() => {
-            console.log("TODOLIST OWNER MODIFIED")
-        }).catch((err) => {
-            console.log(err)
-        });
-    }
-    */
 
     render() {
         const auth = this.props.auth;
@@ -182,17 +268,17 @@ class WireframeScreen extends Component {
                         <button className="btn-small" id="close_button" onClick={this.handleClose}>Close</button>
                     </div>
                 </div>
-                <div className="container_picture"></div>
+                <div className="container_picture" onClick={this.createNewContainer}></div>
                 <span class="container_text">Container</span>
 
-                <span className="prompt_for_input_text">Prompt for Input:</span>
+                <span className="prompt_for_input_text" onClick={this.createNewLabel}>Prompt for Input:</span>
                 <label className="prompt_for_input_label">Label</label>
 
-                <button className="wireframe_button">Submit</button>
+                <button className="wireframe_button" onClick={this.createNewButton}>Submit</button>
                 <label className="button_label">Button</label>
 
-                <div className="wireframe_textfield_div">
-                    <input className="wireframe_textfield" value="Input" type="text" style={{color: "darkgrey"}}></input>
+                <div className="wireframe_textfield_div" onClick={this.createNewTextfield}>
+                    <input className="wireframe_textfield" value="Input" type="label" style={{color: "darkgrey"}} readOnly></input>
                 </div>
                 <label className="textfield_label">Textfield</label>
 
@@ -202,7 +288,7 @@ class WireframeScreen extends Component {
                         {this.state.items.map((item) => {
                             console.log(item)
                             return (
-                                <Rnd style={{border: "2px dotted red"}}
+                                <Rnd style={{/*border: "2px dotted red"*/}}
                             
                             default={{
                                 x: item.x,
