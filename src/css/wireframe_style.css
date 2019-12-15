@@ -221,7 +221,7 @@ div.banner {
   font-size: 15px;
 }
 
-.canvas {
+#canvas {
   height: 650px;
   width: 100%;
   border: solid

@@ -20,11 +20,13 @@ class DatabaseTester extends React.Component {
 
     handleReset = () => {
         const fireStore = getFirestore();
+
+        //console.log(todoListJson)
         
         todoJson.todoLists.forEach(todoListJson => {
             fireStore.collection('todoLists').add({
                     name: todoListJson.name,
-                    owner: todoListJson.owner,
+                    email: todoListJson.email,
                     items: todoListJson.items,
                     time: Date.now()
                 }).then(() => {
@@ -33,6 +35,7 @@ class DatabaseTester extends React.Component {
                     console.log(err);
                 });
         });
+        
     }
 
     render() {

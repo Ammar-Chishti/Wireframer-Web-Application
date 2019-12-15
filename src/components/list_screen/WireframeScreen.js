@@ -9,21 +9,32 @@ import ListTrash from './ListTrash';
 import { ModalYesNoDialog } from '../home_screen/ModalYesNoDialog.js';
 import ItemScreen from '../item_screen/ItemScreen'
 import { ModalYesNoCloseDialog } from './ModalYesNoCloseDialog'
+import { Rnd } from 'react-rnd';
 
 class WireframeScreen extends Component {
     state = {
         name: '',
-        owner: '',
+        items: [],
+        currentDataSaved: false
+    }
+
+    debug = () => {
+        console.log(this.state)
     }
 
     handleClose = (e) => {
 
-        //If we haven't saved yet
-
-        let modalYesNoCloseDialog = document.getElementById("modal_yes_no_close_dialog")
-        modalYesNoCloseDialog.classList.remove("modal_yes_no_close_dialog_slide_out")
-        modalYesNoCloseDialog.classList.add("modal_yes_no_close_dialog_slide_in")
-        modalYesNoCloseDialog.style.visibility = "visible"
+        if (!this.state.currentDataSaved) {
+            let modalYesNoCloseDialog = document.getElementById("modal_yes_no_close_dialog")
+            modalYesNoCloseDialog.classList.remove("modal_yes_no_close_dialog_slide_out")
+            modalYesNoCloseDialog.classList.add("modal_yes_no_close_dialog_slide_in")
+            modalYesNoCloseDialog.style.visibility = "visible"
+        } else {
+            const historyPush = {
+                pathname: "/user/" + this.props.auth.uid + "/wireframes/",
+            }
+            this.props.history.push(historyPush)
+        }
     }
 
     handleSave = (e) => {
@@ -32,9 +43,9 @@ class WireframeScreen extends Component {
 
     }
 
-    /*
     newTimeSet = false
 
+    
     setNewTime = () => {
         getFirestore().collection("todoLists").doc(this.props.todoList.id).update({
             time: Date.now(),
@@ -43,6 +54,58 @@ class WireframeScreen extends Component {
             console.log(err)
         });
     }
+
+    setInitialState = () => {
+        this.setState({
+            ...this.state,
+            name: this.props.todoList.name,
+            items: this.props.todoList.items
+        })
+    }
+
+    renderHTML = (item) => {
+        if (item.type === "container") {
+            return(<div style={{
+                width: "100%",
+                height: "100%",
+                background: "black"
+            }}
+            ></div>)
+        }
+
+        else if (item.type === "label") {
+            console.log("LABELLLLLLL")
+            return(<h1 style={{
+                width: "100%",
+                height: "100%",
+                outline: "solid"
+            }}
+            
+            ></h1>)
+        }
+
+        else if (item.type === "button") {
+            return(<div style={{
+                width: "100%",
+                height: "100%"
+            }}
+            
+            ></div>)
+        }
+
+        else if (item.type === "Textfield") {
+            return(<div style={{
+                width: "100%",
+                height: "100%"
+            }}
+            
+            ></div>)
+        }
+
+
+    }
+
+    /*
 
     deleteCurrentTodo = () => {
         getFirestore().collection("todoLists").doc(this.props.todoList.id).delete().then(function() {
@@ -86,12 +149,11 @@ class WireframeScreen extends Component {
             return <React.Fragment/>
         }
 
-        /*
         if (!this.newTimeSet) {
             this.setNewTime();
+            this.setInitialState();
         }
         this.newTimeSet = true
-        */
         
         return (
             
@@ -119,7 +181,46 @@ class WireframeScreen extends Component {
                 <label className="textfield_label">Textfield</label>
 
                 <div className='col s8' style={{height:'650px'}}>
-                    <div className="canvas"></div>
+                    <div id="canvas">
+                        <div>
+                        {this.state.items.map((item) => {
+                            console.log(item)
+                            return (
+                                <Rnd
+                            
+                            default={{
+                                x: item.x,
+                                y: item.y,
+                                width: item.width,
+                                height: item.height
+                            }}
+                            
+                            /*
+                            size={{
+                                width: item.width,
+                                height: item.height
+                            }}
+                            */
+
+                            /*
+                            position={{
+                                x: item.x,
+                                y: item.y
+                            }}
+                            */
+
+                            //onDragStop={}
+                            //onResizeStop={}
+
+                            minWidth={"7px"}
+                            minHeight={"7px"}
+                            bounds="#canvas"
+                            >
+                            {this.renderHTML(item)}
+                            </Rnd>
+                            )})}
+                        </div>
+                    </div>
                 </div>
 
                 <div className='col s2 grey lighten-2' style={{height:'650px'}}></div>
@@ -152,6 +253,7 @@ class WireframeScreen extends Component {
                     <input className="wireframe_border_radius_edit" value="2" type="text" style={{color: "darkgrey"}}></input>
                 </div>
                 <ModalYesNoCloseDialog historyURL={this.props.history} userId={auth.uid}/>
+                <button onClick={() => this.debug()}>DEBUG</button>
             </div>
         );
     }
