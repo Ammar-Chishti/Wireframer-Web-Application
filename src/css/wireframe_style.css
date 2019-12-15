@@ -23,7 +23,7 @@ body {
 
 
 
-/* THIS CODE IS NOT IN THE RIGHT SECTION. TODO LATER ZZZZZZZZZZZZZZZ*/
+/* THIS CODE BELOW IS NOT IN THE RIGHT SECTION. TODO LATER ZZZZZZZZZZZZZZZ*/
 
 
 
@@ -62,7 +62,7 @@ div.banner {
 
 .home_new_list_button {
   position: relative;
-  left: 28%;
+  left: 27%;
 
   margin-top: 4%;
   border-radius: 15px;
@@ -122,6 +122,113 @@ div.banner {
   text-decoration: underline;
 }
 
+.btn-small {
+  height: 25px;
+  width: 60px;
+  line-height: 5px;
+  font-size: 11px;
+  position: absolute;
+}
+
+.material-icons {
+  position: absolute;
+}
+
+#zoom_in {
+  top: 9%;
+  left: 0%;
+}
+
+#zoom_out {
+  top: 9%;
+  left: 2%;
+}
+
+#save_button {
+  top: 9%;
+  left: 5%;
+}
+
+#close_button {
+  top: 9%;
+  left: 10.3%;
+  width: 69px;
+}
+
+.container_text {
+  position: absolute;
+  font-weight: bold;
+  top: 30.5%;
+  left: 5%;
+}
+
+.container_picture {
+  position: absolute;
+  background-color: white;
+  width: 12%;
+  height: 10%;
+  border: black;
+  border: solid;
+  border-width: 1.5px;
+  border-radius: 3px;
+  top: 20%;
+  left: 2.3%;
+}
+
+.prompt_for_input_text {
+  position: absolute;
+  top: 43%;
+  left: 3.2%;
+}
+
+.prompt_for_input_label {
+  position: absolute;
+  top: 46.2%;
+  left: 6.1%;
+  font-weight: bold;
+  font-size: 15px;
+  color: #111111;
+}
+
+.wireframe_button {
+  position: absolute;
+  top: 61.5%;
+  left: 4.5%;
+}
+
+.button_label {
+  position: absolute;
+  top: 65%;
+  left: 5.9%;
+  font-weight: bold;
+  font-size: 15px;
+  color: #111111;
+}
+
+.wireframe_textfield {
+  position: absolute;
+  top: 80%;
+  left: 5.4%;
+}
+
+.textfield_label {
+  position: absolute;
+  top: 86%;
+  left: 5.4%;
+  font-weight: bold;
+  font-size: 15px;
+  color: #111111;
+}
+
+
+/*
+.w {
+  background-color: gray;
+  height: 50%;
+  width: 30%;
+  position: relative;
+}
+*/
 
 
 
@@ -137,11 +244,7 @@ div.banner {
 
 
 
-
-
-
-
-/* THIS CODE IS NOT IN THE RIGHT SECTION. TODO LATER */
+/* THIS CODE ABOVE IS NOT IN THE RIGHT SECTION. TODO LATER */
 
 
 
