@@ -205,30 +205,129 @@ div.banner {
   color: #111111;
 }
 
-.wireframe_textfield {
+.wireframe_textfield_div {
   position: absolute;
-  top: 80%;
-  left: 5.4%;
+  top: 75%;
+  left: 2%;
+  width: 13%;
 }
 
 .textfield_label {
   position: absolute;
-  top: 86%;
+  top: 84%;
   left: 5.4%;
   font-weight: bold;
-  font-size: 15px;
   color: #111111;
+  font-size: 15px;
 }
 
-
-/*
-.w {
-  background-color: gray;
-  height: 50%;
-  width: 30%;
-  position: relative;
+.canvas {
+  height: 650px;
+  width: 100%;
+  border: solid
 }
-*/
+
+.properties_text {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 11%;
+  left: 85%;
+}
+
+.wireframe_textfield_edit_div {
+  position: absolute;
+  top: 17%;
+  right: 2%;
+  width: 13%;
+}
+
+.wireframe_font_size_edit_div {
+  position: absolute;
+  top: 27%;
+  left: 92%;
+  width: 6%;
+}
+
+.font_size_text {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 30%;
+  left: 84.5%;
+}
+
+.font_color_text {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 40%;
+  left: 84.5%;
+}
+
+.font_color_picker {
+  position: absolute;
+  top: 40%;
+  left: 93%;
+}
+
+.background_color {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 50%;
+  left: 84.5%;
+}
+
+.background_color_picker {
+  position: absolute;
+  top: 50%;
+  left: 93%;
+}
+
+.border_color_text {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 60%;
+  left: 84.5%;
+}
+
+.border_color_picker {
+  position: absolute;
+  top: 60%;
+  left: 93%;
+}
+
+.border_thickness_text {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 70%;
+  left: 84.5%;
+}
+
+.wireframe_border_thickness_edit_div {
+  position: absolute;
+  top: 67%;
+  left: 96.5%;
+  width: 3%;
+}
+
+.border_radius_text {
+  position: absolute;
+  font-weight: bold;
+  color: black;
+  top: 80%;
+  left: 84.5%;
+}
+
+.wireframe_border_radius_edit_div {
+  position: absolute;
+  top: 77%;
+  left: 94.5%;
+  width: 4%;
+}
 
 
 
