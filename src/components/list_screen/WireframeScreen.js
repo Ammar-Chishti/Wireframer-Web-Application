@@ -38,8 +38,21 @@ class WireframeScreen extends Component {
     }
 
     handleSave = (e) => {
+        if (!this.state.currentDataSaved) {
+            
+            console.log("Saved Wireframe")
+            let wireframe = this.props.todoList
+            let wireframeId = this.props.todoList.id;
 
-        console.log('yes')
+            getFirestore().collection("todoLists").doc(wireframeId).update({
+                items: this.state.items
+            })
+
+            this.setState({
+                ...this.state,
+                currentDataSaved: true
+            })
+        }
 
     }
 
@@ -59,6 +72,39 @@ class WireframeScreen extends Component {
             ...this.state,
             name: this.props.todoList.name,
             items: this.props.todoList.items
+        })
+    }
+
+    changeObjectLocation = (index, event, destination) => {
+
+        let tempItems = this.state.items;
+        let itemBeingMoved = tempItems[index];
+
+        itemBeingMoved.x = destination.x
+        itemBeingMoved.y = destination.y
+        tempItems[index] = itemBeingMoved;
+
+        this.setState({
+            ...this.state,
+            items: tempItems,
+            currentDataSaved: false
+        })
+
+        console.log(this.state)
+    }
+
+    resizeObject = (index, event, direction, ref, delta, position) => {
+
+        let tempItems = this.state.items;
+        let itemBeingResized = tempItems[index];
+
+        itemBeingResized.height = ref.style.height
+        itemBeingResized.width = ref.style.width;
+
+        this.setState({
+            ...this.state,
+            items: tempItems,
+            currentDataSaved: false
         })
     }
 
@@ -285,8 +331,7 @@ class WireframeScreen extends Component {
                 <div className='col s8' style={{height:'650px'}}>
                     <div id="canvas">
                         <div>
-                        {this.state.items.map((item) => {
-                            console.log(item)
+                        {this.state.items.map((item, index) => {
                             return (
                                 <Rnd style={{/*border: "2px dotted red"*/}}
                             
@@ -311,8 +356,8 @@ class WireframeScreen extends Component {
                             }}
                             */
 
-                            //onDragStop={}
-                            //onResizeStop={}
+                            onDragStop={(event, destination) => this.changeObjectLocation(index, event, destination)}
+                            onResizeStop={(event, direction, ref, delta, position) => this.resizeObject(index, event, direction, ref, delta, position)}
 
                             minWidth={55}
                             minHeight={20}
