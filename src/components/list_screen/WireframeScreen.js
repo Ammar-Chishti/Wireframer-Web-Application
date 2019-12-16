@@ -38,23 +38,40 @@ class WireframeScreen extends Component {
     }
 
     handleSave = (e) => {
+
         if (!this.state.currentDataSaved) {
             
             console.log("Saved Wireframe")
             let wireframe = this.props.todoList
             let wireframeId = this.props.todoList.id;
+            let newName = document.getElementsByClassName("name_textfield")[0]
 
             getFirestore().collection("todoLists").doc(wireframeId).update({
-                items: this.state.items
+                items: this.state.items,
+                name: newName.value
             })
 
             this.setState({
                 ...this.state,
+                name: newName,
                 currentDataSaved: true
             })
         }
-
     }
+
+
+    /*
+    handleChangeName = (e) => {
+        getFirestore().collection("todoLists").doc(this.props.todoList.id).update({
+            name: e.target.value,
+        }).then(() => {
+            console.log("TODOLIST NAME MODIFIED")
+        }).catch((err) => {
+            console.log(err)
+        });
+    }
+    */
+
 
     newTimeSet = false
 
@@ -313,6 +330,10 @@ class WireframeScreen extends Component {
                         <button className="btn-small" id="close_button" onClick={this.handleClose}>Close</button>
                     </div>
                 </div>
+
+                <label className="name_label">Name</label>
+                <input className="name_textfield" defaultValue={this.props.todoList.name} type="label" style={{color: "black"}}></input>
+
                 <div className="container_picture" onClick={this.createNewContainer}></div>
                 <span class="container_text">Container</span>
 

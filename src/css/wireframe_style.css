@@ -155,10 +155,26 @@ div.banner {
   width: 69px;
 }
 
+.name_label {
+  position: absolute;
+  top: 21%;
+  left: 5.4%;
+  font-weight: bold;
+  color: #111111;
+  font-size: 15px;
+}
+
+.name_textfield {
+  position: absolute;
+  top: 17%;
+  left: 1%;
+  width: 14.8%;
+}
+
 .container_text {
   position: absolute;
   font-weight: bold;
-  top: 30.5%;
+  top: 41.5%;
   left: 5%;
 }
 
@@ -171,19 +187,19 @@ div.banner {
   border: solid;
   border-width: 1.5px;
   border-radius: 3px;
-  top: 20%;
+  top: 30.5%;
   left: 2.3%;
 }
 
 .prompt_for_input_text {
   position: absolute;
-  top: 43%;
+  top: 52.5%;
   left: 3.2%;
 }
 
 .prompt_for_input_label {
   position: absolute;
-  top: 46.2%;
+  top: 56%;
   left: 6.1%;
   font-weight: bold;
   font-size: 15px;
@@ -192,13 +208,13 @@ div.banner {
 
 .wireframe_button {
   position: absolute;
-  top: 61.5%;
+  top: 67.5%;
   left: 4.5%;
 }
 
 .button_label {
   position: absolute;
-  top: 65%;
+  top: 71%;
   left: 5.9%;
   font-weight: bold;
   font-size: 15px;
@@ -207,7 +223,7 @@ div.banner {
 
 .wireframe_textfield_div {
   position: absolute;
-  top: 76%;
+  top: 81%;
   left: 1%;
 }
 
@@ -217,7 +233,7 @@ div.banner {
 
 .textfield_label {
   position: absolute;
-  top: 80%;
+  top: 85%;
   left: 5.4%;
   font-weight: bold;
   color: #111111;
