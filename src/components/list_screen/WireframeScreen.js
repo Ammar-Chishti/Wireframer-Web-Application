@@ -103,8 +103,7 @@ class WireframeScreen extends Component {
             items: tempItems,
             currentDataSaved: false
         })
-
-        console.log(this.state)
+        this.unlockItemChangers(index)
     }
 
     resizeObject = (index, event, direction, ref, delta, position) => {
@@ -120,6 +119,238 @@ class WireframeScreen extends Component {
             items: tempItems,
             currentDataSaved: false
         })
+        this.unlockItemChangers(index)
+    }
+
+    unlockItemChangers = (index) => {
+
+        let tempItems = this.state.items;
+        let currentItem = tempItems[index];
+
+        window.itemIndex = index;
+        let wireframe_textfield_edit = document.getElementsByClassName("wireframe_textfield_edit")[0];
+        let wireframe_font_size_edit = document.getElementsByClassName('wireframe_font_size_edit')[0];
+        let font_color_picker = document.getElementsByClassName("font_color_picker")[0];
+        let background_color_picker = document.getElementsByClassName("background_color_picker")[0];
+        let border_color_picker = document.getElementsByClassName("border_color_picker")[0];
+        let border_thickness_edit = document.getElementsByClassName("wireframe_border_thickness_edit")[0];
+        let border_radius_edit = document.getElementsByClassName("wireframe_border_radius_edit")[0];
+
+        if (currentItem.type === "container") {
+
+            // Leaving the fields we don't need to change disabled
+            wireframe_textfield_edit.disabled = true;
+            wireframe_font_size_edit.disabled = true;
+            font_color_picker.disabled = true;
+
+            background_color_picker.disabled = false;
+            background_color_picker.value = currentItem.backgroundColor;
+            background_color_picker.addEventListener("change", (e)=> this.handleBackgroundColorChange(e));
+
+            border_color_picker.disabled = false;
+            border_color_picker.value = currentItem.borderColor;
+            border_color_picker.addEventListener("change", (e)=> this.handleBorderColorChange(e));
+
+            border_thickness_edit.disabled = false;
+            border_thickness_edit.value = currentItem.borderThickness;
+            border_thickness_edit.addEventListener("change", (e)=> this.handleBorderThicknessChange(e));
+
+            border_radius_edit.disabled = false;
+            border_radius_edit.value = currentItem.borderRadius;
+            border_radius_edit.addEventListener("change", (e)=> this.handleBorderRadiusChange(e));
+            
+        } else
+
+        if (currentItem.type === "label") {
+
+            wireframe_textfield_edit.disabled = false;
+            wireframe_textfield_edit.value = currentItem.itemText;
+            wireframe_textfield_edit.addEventListener("change", (e)=> this.handleTextChange(e));
+
+            wireframe_font_size_edit.disabled = false;
+            wireframe_font_size_edit.value = currentItem.textSize;
+            wireframe_font_size_edit.addEventListener("change", (e)=> this.handleFontSizeChange(e));
+
+            font_color_picker.disabled = false;
+            font_color_picker.value = currentItem.textColor;
+            font_color_picker.addEventListener("change", (e)=> this.handleFontColorChange(e));
+
+            background_color_picker.disabled = false;
+            background_color_picker.value = currentItem.backgroundColor;
+            background_color_picker.addEventListener("change", (e)=> this.handleBackgroundColorChange(e));
+
+            border_color_picker.disabled = false;
+            border_color_picker.value = currentItem.borderColor;
+            border_color_picker.addEventListener("change", (e)=> this.handleBorderColorChange(e));
+
+            border_thickness_edit.disabled = false;
+            border_thickness_edit.value = currentItem.borderThickness;
+            border_thickness_edit.addEventListener("change", (e)=> this.handleBorderThicknessChange(e));
+
+            border_radius_edit.disabled = false;
+            border_radius_edit.value = currentItem.borderRadius;
+            border_radius_edit.addEventListener("change", (e)=> this.handleBorderRadiusChange(e));
+
+        } else
+
+        if (currentItem.type === "button") {
+            wireframe_textfield_edit.disabled = false;
+            wireframe_textfield_edit.value = currentItem.itemText;
+            wireframe_textfield_edit.addEventListener("change", (e)=> this.handleTextChange(e));
+
+
+            wireframe_font_size_edit.disabled = false;
+            wireframe_font_size_edit.value = currentItem.textSize;
+            wireframe_font_size_edit.addEventListener("change", (e)=> this.handleFontSizeChange(e));
+
+
+            font_color_picker.disabled = false;
+            font_color_picker.value = currentItem.textColor;
+            font_color_picker.addEventListener("change", (e)=> this.handleFontColorChange(e));
+
+
+            background_color_picker.disabled = false;
+            background_color_picker.value = currentItem.backgroundColor;
+            background_color_picker.addEventListener("change", (e)=> this.handleBackgroundColorChange(e));
+
+
+            border_color_picker.disabled = false;
+            border_color_picker.value = currentItem.borderColor;
+            border_color_picker.addEventListener("change", (e)=> this.handleBorderColorChange(e));
+
+
+            border_thickness_edit.disabled = false;
+            border_thickness_edit.value = currentItem.borderThickness;
+            border_thickness_edit.addEventListener("change", (e)=> this.handleBorderThicknessChange(e));
+
+
+            border_radius_edit.disabled = false;
+            border_radius_edit.value = currentItem.borderRadius;
+            border_radius_edit.addEventListener("change", (e)=> this.handleBorderRadiusChange(e));
+
+        } else
+        
+        if (currentItem.type === "textfield") {
+            wireframe_textfield_edit.disabled = false;
+            wireframe_textfield_edit.value = currentItem.itemText;
+            wireframe_textfield_edit.addEventListener("change", (e)=> this.handleTextChange(e));
+
+            wireframe_font_size_edit.disabled = false;
+            wireframe_font_size_edit.value = currentItem.textSize;
+            wireframe_font_size_edit.addEventListener("change", (e)=> this.handleFontSizeChange(e));
+
+            font_color_picker.disabled = false;
+            font_color_picker.value = currentItem.textColor;
+            font_color_picker.addEventListener("change", (e)=> this.handleFontColorChange(e));
+
+            background_color_picker.disabled = false;
+            background_color_picker.value = currentItem.backgroundColor;
+            background_color_picker.addEventListener("change", (e)=> this.handleBackgroundColorChange(e));
+
+            border_color_picker.disabled = false;
+            border_color_picker.value = currentItem.borderColor;
+            border_color_picker.addEventListener("change", (e)=> this.handleBorderColorChange(e));
+
+            border_thickness_edit.disabled = false;
+            border_thickness_edit.value = currentItem.borderThickness;
+            border_thickness_edit.addEventListener("change", (e)=> this.handleBorderThicknessChange(e));
+
+            border_radius_edit.disabled = false;
+            border_radius_edit.value = currentItem.borderRadius;
+            border_radius_edit.addEventListener("change", (e)=> this.handleBorderRadiusChange(e));
+        }
+
+    }
+
+    handleTextChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.itemText = e.target.value;
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items:items,
+            currentDataSaved: false
+        });
+    }
+
+    handleFontSizeChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.textSize = e.target.value;
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items:items,
+            currentDataSaved: false
+        });
+    }
+
+    handleFontColorChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.textColor = e.target.value
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items: items,
+            currentDataSaved : false
+        });
+    }
+
+    handleBackgroundColorChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.backgroundColor = e.target.value;
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items: items,
+            currentDataSaved: false
+        });
+    }
+
+    handleBorderColorChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.borderColor = e.target.value;
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items: items,
+            currentDataSaved: false
+        });
+    }
+
+    handleBorderThicknessChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.borderThickness = e.target.value;
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items: items,
+            currentDataSaved: false
+        });
+    }
+
+    handleBorderRadiusChange = (e) => {
+        let items = this.state.items;
+        let currentItem = items[window.itemIndex];
+        currentItem.borderRadius = e.target.value;
+
+        items[window.currentIndex] = currentItem;
+        this.setState({
+            ...this.state,
+            items: items,
+            currentDataSaved: false
+        });
     }
 
     renderHTML = (item) => {
@@ -390,12 +621,12 @@ class WireframeScreen extends Component {
                 <div className='col s2 grey lighten-2' style={{height:'650px'}}></div>
                 <span class="properties_text">Properties</span>
                 <div className="wireframe_textfield_edit_div">
-                    <input className="wireframe_textfield_edit" value="Submit" type="text" style={{color: "darkgrey"}}></input>
+                    <input className="wireframe_textfield_edit" defaultValue="Submit" type="text" style={{color: "darkgrey"}}></input>
                 </div>
 
                 <span class="font_size_text">Font Size:</span>
                 <div className="wireframe_font_size_edit_div">
-                    <input className="wireframe_font_size_edit" value="14" type="text" style={{color: "darkgrey"}}></input>
+                    <input className="wireframe_font_size_edit" defaultValue="14" type="text" style={{color: "darkgrey"}}></input>
                 </div>
 
                 <span class="font_color_text">Font Color:</span>
@@ -409,12 +640,12 @@ class WireframeScreen extends Component {
 
                 <span class="border_thickness_text">Border Thickness:</span>
                 <div className="wireframe_border_thickness_edit_div">
-                    <input className="wireframe_border_thickness_edit" value="2" type="text" style={{color: "darkgrey"}}></input>
+                    <input className="wireframe_border_thickness_edit" defaultValue="2" type="text" style={{color: "darkgrey"}}></input>
                 </div>
 
                 <span class="border_radius_text">Border Radius:</span>
                 <div className="wireframe_border_radius_edit_div">
-                    <input className="wireframe_border_radius_edit" value="2" type="text" style={{color: "darkgrey"}}></input>
+                    <input className="wireframe_border_radius_edit" defaultValue="2" type="text" style={{color: "darkgrey"}}></input>
                 </div>
                 <ModalYesNoCloseDialog historyURL={this.props.history} userId={auth.uid}/>
                 <button onClick={() => this.debug()}>DEBUG</button>
