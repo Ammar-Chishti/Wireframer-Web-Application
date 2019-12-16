@@ -372,6 +372,10 @@ div.banner {
   to {top: -300px; opacity: 0}
 }
 
+.database_tester_button_redirect {
+  visibility: hidden
+}
+
 
 
 

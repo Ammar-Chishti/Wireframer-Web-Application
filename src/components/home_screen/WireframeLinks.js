@@ -11,7 +11,6 @@ class WireframeLinks extends React.Component {
 
     render() {
         let todoLists = this.props.todoLists;
-        console.log(this.props)
 
         if (todoLists !== undefined) {
             todoLists = this.props.todoLists.filter(

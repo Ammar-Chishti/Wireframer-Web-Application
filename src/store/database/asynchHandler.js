@@ -6,7 +6,6 @@ export const loginHandler = ({ credentials, firebase }) => (dispatch, getState) 
       credentials.password,
     ).then(() => {
       console.log("LOGIN_SUCCESS");
-      //window.currentUserEmail = credentials.email
       dispatch({ type: 'LOGIN_SUCCESS' });
     }).catch((err) => {
       console.log("LOGIN_ERROR")
@@ -30,10 +29,10 @@ export const registerHandler = (newUser, firebase) => (dispatch, getState, { get
         password: newUser.password,
         firstName: newUser.firstName,
         lastName: newUser.lastName,
+        admin: false,
         initials: `${newUser.firstName[0]}${newUser.lastName[0]}`,
     })).then(() => {
         console.log("REGISTER_SUCCESS")
-        //window.currentUserEmail = newUser.email
         dispatch({ type: 'REGISTER_SUCCESS' });
     }).catch((err) => {
         console.log("REGISTER_ERROR")

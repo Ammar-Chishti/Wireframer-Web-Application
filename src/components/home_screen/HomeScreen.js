@@ -26,6 +26,13 @@ class HomeScreen extends Component {
         this.props.history.push(historyPush)
     }
 
+    redirectDatabaseTester = () => {
+        const historyPush = {
+            pathname: "/databaseTester"
+        }
+        this.props.history.push(historyPush)
+    }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
@@ -33,7 +40,13 @@ class HomeScreen extends Component {
 
         getFirestore().collection("users").doc(this.props.auth.uid).get().then(function(doc) {
             window.currentUserEmail = doc.data().email;
+
+            if (doc.data().admin) {
+                let database_tester_button_redirect = document.getElementsByClassName("database_tester_button_redirect")
+                database_tester_button_redirect[0].style.visibility = "visible"
+            }
         })
+        
 
         return (
             <div className="dashboard">
@@ -52,6 +65,9 @@ class HomeScreen extends Component {
                         <div className="home_new_list_container">
                                 <button className="home_new_list_button" onClick={this.handleNewWireframe}>
                                     Create New Wireframe
+                                </button>
+                                <button className="home_new_list_button database_tester_button_redirect" onClick={this.redirectDatabaseTester}>
+                                    Access Database Tester
                                 </button>
                         </div>
                     </div>
