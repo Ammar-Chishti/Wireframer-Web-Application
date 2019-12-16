@@ -283,7 +283,6 @@ class WireframeScreen extends Component {
             currentDataSaved: false
         })
     }
-
     
 
     render() {

@@ -20,7 +20,6 @@ class DatabaseTester extends React.Component {
 
     handleReset = () => {
         const fireStore = getFirestore();
-        
         todoJson.todoLists.forEach(todoListJson => {
             fireStore.collection('todoLists').add({
                     name: todoListJson.name,
