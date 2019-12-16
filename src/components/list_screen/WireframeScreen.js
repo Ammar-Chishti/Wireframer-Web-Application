@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import ItemsList from './ItemsList.js'
 import { firestoreConnect } from 'react-redux-firebase';
 import { getFirestore } from 'redux-firestore';
-import ListTrash from './ListTrash';
 import { ModalYesNoDialog } from '../home_screen/ModalYesNoDialog.js';
-import ItemScreen from '../item_screen/ItemScreen'
 import { ModalYesNoCloseDialog } from './ModalYesNoCloseDialog'
 import { Rnd } from 'react-rnd';
 

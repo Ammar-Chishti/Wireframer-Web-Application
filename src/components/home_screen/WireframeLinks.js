@@ -7,8 +7,6 @@ import { getFirestore } from 'redux-firestore';
 
 class WireframeLinks extends React.Component {
 
-    //filterCurrentUserTodoLists(todoLists) {}
-
     render() {
         let todoLists = this.props.todoLists;
 
