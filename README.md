@@ -1,4 +1,4 @@
-# Note that the code base here might be a "bit" disorganized. Because of the final exam schedule, this assignment felt more like a thrilling extended hackathon than a final project
+# Note that the code base here might be a "bit" disorganized due to the assignment's deadline coinciding with many final exams back to back
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
